@@ -153,4 +153,7 @@ abstract public class Car {
         return isCrashed() ? "C" : Character.toString(carType.getSymbol());
     }
 
+    //    private void test(String a){
+    //        System.out.println("aaa");
+    //    }
 }
