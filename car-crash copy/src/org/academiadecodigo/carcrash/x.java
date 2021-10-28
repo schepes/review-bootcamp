@@ -1,5 +1,7 @@
 package org.academiadecodigo.carcrash;
 
+import java.util.LinkedList;
+
 public class x {
     public static void main(String[] args) {
         System.out.println(1+2.5);
@@ -9,6 +11,16 @@ public class x {
         b[1] = 10;
         System.out.println(arr[1]);
 
+        LinkedList<Integer> l1 = new LinkedList<>();
+        l1.add(2);
+        l1.add(4);
+        l1.add(3);
+        LinkedList<Integer> l2 = new LinkedList<>();
+        l2.add(5);
+        l2.add(6);
+        l2.add(4);
+        int a = Solution.addTwoNumbers(l1,l2);
+        System.out.println("this is a" + a);
 
     }
     public static void a(int[] a){
@@ -34,4 +46,23 @@ class Employee extends Person {
 }
 class Person {
     public Person() { System.out.println("(1) Person's no-arg constructor is invoked"); }
+}
+class Solution {
+    public static int addTwoNumbers(LinkedList<Integer> l1, LinkedList<Integer> l2) {
+        int result=0;
+        for (int i = 0; i<l1.size(); i++){
+            int temp = l1.get(i) + l2.get(i);
+            if(temp>=10){
+                temp = temp%10;
+                if(l1.get(i+1)!= null){
+                    l1.set(i+1,l1.get(i+1)+1);
+                }
+                else{
+                    temp +=10;
+                }
+            }
+            result += temp * Math.pow(10,i);
+        }
+        return result;
+    }
 }
